@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "hungmn.alarmmanager"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_ver}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_ver}"
+    implementation "androidx.core:core-ktx:${core_ktx_ver}"
+    implementation "androidx.appcompat:appcompat:${appcompat_ver}"
+    implementation "com.google.android.material:material:${material_ver}"
+    implementation "androidx.constraintlayout:constraintlayout:${constraintlayout_ver}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junit_jupiter_api_ver}"
+    androidTestImplementation "androidx.test.ext:junit:${junit_ver}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${espresso_core_ver}"
+}
